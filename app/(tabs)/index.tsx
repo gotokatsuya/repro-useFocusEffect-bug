@@ -1,4 +1,6 @@
 import { Image } from 'expo-image';
+import { useFocusEffect } from 'expo-router';
+import { useCallback } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
@@ -7,6 +9,12 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
+  useFocusEffect(
+    useCallback(() => {
+      console.log('🏷️ Screen focused');
+    }, [])
+  );
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
